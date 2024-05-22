@@ -1,0 +1,15 @@
+version: '3.8'
+name: ec6_2
+services:
+  web:
+    image: nginx:1.25.3-alpine
+    container_name: nginx_ec6_2
+    ports:
+      - 8001:80
+    volumes:
+      # App medplus
+      - ./app/medplus:/var/www/html/medplus/
+      # App portfolio
+      - ./app/portfolio:/var/www/html/portfolio/
+      # configuraciones servers
+      - ./config/nginx/conf.d:/etc/nginx/conf.d
